@@ -1,5 +1,33 @@
+import { useSelector } from "react-redux";
+import { useGetAllMedsQuery } from "../features/medsAPI";
+import "../stylesheets/Home.css"
+
 const Home = () => {
-    return ( <h2>Whereas</h2> );
+    const { items, status } = useSelector(state => state.meds);
+    const { data, err, isLoading } = useGetAllMedsQuery();
+    return(
+        <div className="home-container">
+            { isLoading ? (<p>Loading meds...</p>) 
+            : err ? 
+            (<p>An error occured. Please refresh or come back later.</p>)
+            : (
+                <>
+                <h2>Our Meds</h2>
+                <div className="meds">
+                    {data?.map(med => <div key={med.id} className="medicament">
+                        <h3>{med.name}</h3>
+                        <img src={med.image} />
+                        <div className="med-details">
+                            {/* <span>{med.descr}</span> */}
+                            <span className="med-price">{med.price} RON</span>
+                        </div>
+                        <button>Add to Cart</button>
+                </div>)}
+                </div>
+                </>
+            )}
+        </div>
+    )
 }
  
 export default Home;

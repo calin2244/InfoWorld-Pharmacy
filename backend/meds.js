@@ -4,14 +4,14 @@ const meds = [
         name: "Nurofen Forte",
         description: "Ceva",
         price: 35,
-        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomenzi.farmaciatei.ro%2Fmedicamente-otc%2Fsistemul-respirator%2Fanalgezice%2Fnurofen-forte-400-mg-24-drajeuri-reckitt-benkiser-p328447&psig=AOvVaw3UmPdK1oyqBVYpa_h1CoV0&ust=1678721781576000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjlgo3c1v0CFQAAAAAdAAAAABAP"
+        image: "https://www.nowafarmacja.pl/img/imagecache/3001-4000/product-media/120539382fc8a52f7fc75d1121fe3f2a7983d387/NF_301761_1-680x680.webp"
     },
     {
         id: 2,
         name: "Paracetamol",
         description: "Ceva 2",
         price: 20,
-        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.medik-on.ro%2Fraceala-si-gripa%2Fparacetamol-500mg-x-20-comprimate-slavia-i84880.html&psig=AOvVaw3MuW3Q6-xICjP2Q0seTHeE&ust=1678721804098000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPDx6pfc1v0CFQAAAAAdAAAAABAE"
+        image: "http://farmacia-abc.ro/wp-content/uploads/2017/03/PARACETAMOL-125MGX10SUP-MAGISTRA-farmacie-abc-online-pret.jpg"
     },
     {
         id: 3,

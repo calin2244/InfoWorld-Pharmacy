@@ -7,10 +7,15 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import medReducer, { medsFetch } from './features/medSlice';
+import { medsAPI } from './features/medsAPI';
 
 const store = configureStore({
   reducer: {
-    meds: medReducer
+    meds: medReducer,
+    [medsAPI.reducerPath]: medsAPI.reducer
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(medsAPI.middleware);
   }
 });
 

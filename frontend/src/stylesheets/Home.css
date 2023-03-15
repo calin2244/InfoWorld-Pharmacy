@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500&display=swap');
+
+.home-container{
+    padding: 2rem 4rem;
+}  
+
+.home-container h2{
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.meds{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.medicament{
+    max-width: 100%;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+
+.medicament img{
+    width: 12em;
+    margin-top: 1rem;
+    margin-left: auto;
+}
+
+.medicament h3{
+    background-color: #8984D6;
+    text-align: center;
+    padding: 0.3em;
+    border-radius: 20px;
+    border: 2px solid black;
+    color: white;
+}
+
+.med-price{
+    font-weight: 500;
+    text-align: center;
+    color: #563554;   
+}
+
+.meds button{
+    all: unset;
+    padding: 5px 5px 5px 5px;
+    font-size: 20px;
+    border-radius: 4px;
+    color: white;
+    background-color: #8984D6;
+    transition: all .2s;
+}
+
+.meds button:hover{
+    cursor: pointer;
+    background-color: #7251B2;
+    transition: 0.4 ease-in-out;
+    color: black;
+}
+
