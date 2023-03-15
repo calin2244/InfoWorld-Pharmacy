@@ -4,10 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import medReducer, { medsFetch } from './features/medSlice';
+
+const store = configureStore({
+  reducer: {
+    meds: medReducer
+  }
+});
+
+store.dispatch(medsFetch());
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <Provider store={store}>
     <App />
+  </Provider>
   </React.StrictMode>
 );
 
