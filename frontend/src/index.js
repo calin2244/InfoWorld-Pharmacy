@@ -8,10 +8,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import medReducer, { medsFetch } from './features/medSlice';
 import { medsAPI } from './features/medsAPI';
+import cartReducer from './features/cartSlice';
+
 
 const store = configureStore({
   reducer: {
     meds: medReducer,
+    cart: cartReducer,
     [medsAPI.reducerPath]: medsAPI.reducer
   },
   middleware: (getDefaultMiddleware) => {

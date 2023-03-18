@@ -1,10 +1,15 @@
 import { useSelector } from "react-redux";
 import { useGetAllMedsQuery } from "../features/medsAPI";
 import "../stylesheets/Home.css"
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 const Home = () => {
     const { items, status } = useSelector(state => state.meds);
     const { data, err, isLoading } = useGetAllMedsQuery();
+
+    const dispatch = useDispatch();
+
     return(
         <div className="home-container">
             { isLoading ? (<p>Loading meds...</p>) 
@@ -21,7 +26,10 @@ const Home = () => {
                             {/* <span>{med.descr}</span> */}
                             <span className="med-price">{med.price} RON</span>
                         </div>
-                        <button>Add to Cart</button>
+                        <button onClick={() => {
+                            dispatch(addToCart(med))
+                        }}
+                        >Add to Cart</button>
                 </div>)}
                 </div>
                 </>
