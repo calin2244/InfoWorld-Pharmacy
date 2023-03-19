@@ -1,4 +1,5 @@
 import { compose, createSlice } from "@reduxjs/toolkit";
+import { json } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -60,6 +61,7 @@ const cartSlice = createSlice({
 
         state.cartItems = nextItem;
         localStorage.setItem("cartItem", JSON.stringify(state.cartItems));
+        localStorage.setItem('meds', JSON.stringify(state.cartItems));
     },
     decreaseCartQuantity(state, action) {
         const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);

@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    items: [],
+    items: localStorage.getItem("meds")
+    ? JSON.parse(localStorage.getItem("meds"))
+    : [],
     status: null,
     error: null
 };
@@ -34,6 +36,10 @@ const medsSlice = createSlice({
             const updatedItem = { ...state.items[itemIndex], stock: state.items[itemIndex].stock - 1 };
             const updatedItems = [ ...state.items.slice(0, itemIndex), updatedItem, ...state.items.slice(itemIndex + 1) ];
             state.items = updatedItems;
+
+            console.log(updatedItems);
+
+            localStorage.setItem('meds', JSON.stringify(updatedItems));
         }
     },
     extraReducers: {
