@@ -1,0 +1,194 @@
+.cart-container{
+    padding: 2rem 3rem;
+}
+
+.cart-container h2{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+ 
+.titles{
+    margin: 2rem 0 1rem;
+}
+
+.titles h3{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.cart-item, .titles{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    column-gap: 0.6rem;
+}
+
+.cart-item{
+    border-top: 2px solid rgb(199, 138, 225);
+    padding: 1rem 0;
+}
+
+.med-name{
+    padding-left: 0.6rem;
+}
+
+.total-price-med{
+    padding-right: 0.6rem;
+    justify-self: right;
+}
+
+.cart-med{
+    display: flex;
+}
+
+.cart-med img{
+    width: 100px;
+    max-width: 100%;
+    margin-right: 1rem;
+}
+
+.cart-med h3{
+    font-weight: 600;
+}
+
+.remove-med-button{
+    all: unset;
+    border: 4px solid #AD72FE;
+    background-color: #AD72FE;
+    color: white;
+    border-radius: 6px;
+    padding: 0.2rem;
+    transition: 0.2s all;
+}
+
+.remove-med-button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.cart-item-quantity{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100px;
+    max-width: 100%;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.cart-item-quantity button{
+    all: unset;
+    padding: 0.5rem 1.4rem;
+    cursor: pointer;
+}
+
+.count{
+    padding: 0.5rem;
+}
+
+.cart-item-total-price{
+    justify-self: right;
+    font-weight: 600;
+    padding-right: 2.6rem;
+}
+
+.cart-summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 2px solid black;
+    padding-top: 1.6rem;
+}
+
+.clear-cart{
+    all: unset;
+    width: 100px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 0.4rem;
+    font-size: 18px;
+    transition: 0.3s all;
+    margin-left: 1rem;
+    margin-bottom: 20px;
+}
+
+.clear-cart:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+    color: black;
+}
+
+.cart-checkout{
+    margin-right: 1rem;
+    max-width: 100%;
+    border-radius: 6px;
+    background-color: aliceblue;
+    padding: 0.6rem;
+}
+
+.total-price{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+.amount{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.checkout-button{
+    all: unset;
+    margin: 0;
+    padding: 0.2rem;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    transition: 0.2s all;
+}
+
+.checkout-button:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+    color: black;
+}
+
+@media screen and (max-width: 600px){
+    .cart-item, .titles{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        grid-template-rows: 2fr 1fr 1fr 1fr;
+        column-gap: 2rem;
+    }
+
+    .clear-cart, .cart-checkout{
+        margin: 0;
+    }
+
+    .clear-cart{
+        margin-bottom: 20px;
+    }
+
+    .cart-item-price{
+        color: transparent;
+    }
+
+    .cart-item-total-price{
+        padding-top: 15px;
+    }
+
+    /* Numele coloanelor din grid, le elimin schimband marimea fontului la 0px */
+    .titles h3{
+        font-size: 0px;
+    }
+
+}
+

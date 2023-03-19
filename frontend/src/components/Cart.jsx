@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "../stylesheets/Cart.css";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart); //from the store
@@ -35,7 +36,7 @@ const Cart = () => {
             <h3 className="med-name">Medicament</h3>
             <h3 className="price">Price</h3>
             <h3 className="quantity">Quantity</h3>
-            <h3 className="total-price">Total Price</h3>
+            <h3 className="total-price-med">Total Price</h3>
           </div>
           <div className="cart-items">
             {cart.cartItems.map((item) => (
@@ -45,7 +46,7 @@ const Cart = () => {
                   <div>
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
-                    <button>Remove item</button>
+                    <button className="remove-med-button">Remove item</button>
                   </div>
                 </div>
                 <div className="cart-item-price">{item.price} RON</div>
@@ -61,15 +62,16 @@ const Cart = () => {
             ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-cart">Clear</button>
+            <button className="clear-cart">Clear Cart</button>
             <div className="cart-checkout">
               <div className="total-price">
                 <span>Total Price</span>
-                <span>
+                <span className="amount">
                   {cart.cartItems.reduce(
                     (acc, curr) => (acc += curr.price * curr.quantity),0)}{" "}
                   RON
                 </span>
+                <button className="checkout-button">Checkout</button>
               </div>
             </div>
           </div>

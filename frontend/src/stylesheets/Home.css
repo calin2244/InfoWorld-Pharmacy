@@ -29,7 +29,8 @@
 }
 
 .medicament img{
-    width: 12em;
+    width: 200px;
+    max-width: 100%;
     margin-top: 1rem;
     margin-left: auto;
 }
