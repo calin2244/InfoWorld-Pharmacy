@@ -1,41 +1,60 @@
 import { useSelector } from "react-redux";
 import { useGetAllMedsQuery } from "../features/medsAPI";
-import "../stylesheets/Home.css"
+import "../stylesheets/Home.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
+import { decreaseStock } from "../features/medSlice";
 
 const Home = () => {
-    const { items, status } = useSelector(state => state.meds);
-    const { data, err, isLoading } = useGetAllMedsQuery();
+  const cart = useSelector((state) => state.cart);
+  const { items, status } = useSelector((state) => state.meds);
+  const { data, err, isLoading } = useGetAllMedsQuery();
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    return(
-        <div className="home-container">
-            { isLoading ? (<p>Loading meds...</p>) 
-            : err ? 
-            (<p>An error occured. Please refresh or come back later.</p>)
-            : (
-                <>
-                <h2>Our Meds</h2>
-                <div className="meds">
-                    {data?.map(med => <div key={med.id} className="medicament">
-                        <h3>{med.name}</h3>
-                        <img src={med.image} />
-                        <div className="med-details">
-                            {/* <span>{med.descr}</span> */}
-                            <span className="med-price">{med.price} RON</span>
-                        </div>
-                        <button onClick={() => {
-                            dispatch(addToCart(med))
-                        }}
-                        >Add to Cart</button>
-                </div>)}
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    dispatch(decreaseStock({ id: item.id, quantity: 1 }));
+  };
+
+  return (
+    <div className="home-container">
+      {isLoading ? (
+        <p>Loading meds...</p>
+      ) : err ? (
+        <p>An error occurred. Please refresh or come back later.</p>
+      ) : (
+        <>
+          <h2>Our Meds</h2>
+          <div className="meds">
+            {data?.map((med) => {
+              const item = items.find((item) => item.id === med.id);
+              const isOutOfStock = item?.stock <= 0;
+
+              return (
+                <div key={med.id} className="medicament">
+                  <h3>{med.name}</h3>
+                  <img src={med.image} />
+                  <div className="med-details">
+                    <span className="med-price">{med.price} RON</span>
+                  </div>
+                  <div className="med-stock">Stock: {item?.stock || 0}</div>
+                  <div>
+                    <button
+                      disabled={isOutOfStock}
+                      onClick={() => handleAddToCart(item)}
+                    >
+                      {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+                    </button>
+                  </div>
                 </div>
-                </>
-            )}
-        </div>
-    )
-}
- 
+              );
+            })}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 export default Home;

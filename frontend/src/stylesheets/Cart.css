@@ -7,6 +7,17 @@
     padding-bottom: 2rem;
 }
  
+.empty-cart{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.back-to-shop{
+    text-align: center;
+    padding: 1rem;
+}
+
 .titles{
     margin: 2rem 0 1rem;
 }

@@ -27,7 +27,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/cart" exact Component={Cart} />
-        <Route path="/" exact Component={Home} />
+        <Route path="/shop" exact Component={Home} />
         <Route path="/*" Component={NotFound} element={<Navigate />}/>
       </Routes>
     </Router>

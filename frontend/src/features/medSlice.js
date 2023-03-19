@@ -22,7 +22,20 @@ export const medsFetch = createAsyncThunk(
 const medsSlice = createSlice({
     name: "meds",
     initialState,
-    reducers: {},
+    reducers: {
+        // decreaseStock: (state, action) =>{
+        //     const { id, quantity } = action.payload;
+        //     const itemIndex = state.items.findIndex(item => item.id === id);
+        //     state.items[itemIndex].stock -= 1;
+        // }
+        decreaseStock: (state, action) =>{
+            const { id, quantity } = action.payload;
+            const itemIndex = state.items.findIndex(item => item.id === id);
+            const updatedItem = { ...state.items[itemIndex], stock: state.items[itemIndex].stock - 1 };
+            const updatedItems = [ ...state.items.slice(0, itemIndex), updatedItem, ...state.items.slice(itemIndex + 1) ];
+            state.items = updatedItems;
+        }
+    },
     extraReducers: {
         [medsFetch.pending]: (state, action) => {
             state.status = "pending";
@@ -38,4 +51,5 @@ const medsSlice = createSlice({
     }
 });
 
+export const { decreaseStock } = medsSlice.actions;
 export default medsSlice.reducer;
