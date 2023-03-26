@@ -74,3 +74,9 @@ body{
     color: black;
 }
 
+.welcome-text{
+    text-align: center;
+    margin: 0.5rem;
+    font-weight: 400;
+
+}

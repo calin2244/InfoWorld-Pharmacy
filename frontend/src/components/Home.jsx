@@ -4,11 +4,19 @@ import "../stylesheets/Home.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import { decreaseStock } from "../features/medSlice";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const cart = useSelector((state) => state.cart);
+  const auth = useSelector((state) => state.auth);
   const { items, status } = useSelector((state) => state.meds);
   const { data, err, isLoading } = useGetAllMedsQuery();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(!!auth._id);
+  }, [auth]);
 
   const dispatch = useDispatch();
 
@@ -26,6 +34,12 @@ const Home = () => {
       ) : (
         <>
           <h2>Our Meds</h2>
+          {isLoggedIn ? (
+            <div className="welcome-text">
+              Buna {auth.name}! Avem tot ce ai nevoie!
+            </div>
+          ) : null}
+
           <div className="meds">
             {data?.map((med) => {
               const item = items.find((item) => item.id === med.id);

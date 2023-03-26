@@ -1,0 +1,21 @@
+{
+    "workbench.colorCustomizations": {
+        "[Kanagawa]": {
+            "editorIndentGuide.background": "#312f2f", // Indent lines
+            "editorIndentGuide.activeBackground": "#5a5050", // Active indent line
+            "terminalCursor.foreground": "#a46fb8"
+          }
+    },
+    "editor.tokenColorCustomizations": {
+        "[Kanagawa]": {
+          "comments": {
+            "foreground": "#b7b7b7"
+          },
+          "variables": {
+            "foreground": "#ffff"
+          }
+        }
+    },
+
+    
+}

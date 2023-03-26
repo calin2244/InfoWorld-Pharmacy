@@ -9,11 +9,13 @@ import { Provider } from "react-redux";
 import medReducer, { medsFetch } from './features/medSlice';
 import { medsAPI } from './features/medsAPI';
 import cartReducer from './features/cartSlice';
+import authReducer, { loadUser } from './features/authSlice';
 
 const store = configureStore({
   reducer: {
     meds: medReducer,
     cart : cartReducer,
+    auth: authReducer,
     [medsAPI.reducerPath]: medsAPI.reducer
   },
   middleware: (getDefaultMiddleware) => {
@@ -22,6 +24,7 @@ const store = configureStore({
 });
 
 store.dispatch(medsFetch());
+store.dispatch(loadUser(null));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

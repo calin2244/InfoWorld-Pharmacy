@@ -22,7 +22,7 @@ const Cart = () => {
         <div className="cart-empty">
           <p className="empty-cart">Your shopping cart is empty.</p>
           <div className="back-to-shop">
-            <Link to="/shop">
+            <Link to="/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -77,7 +77,7 @@ const Cart = () => {
               <div className="total-price">
                 <span>Total Price</span>
                 <span className="amount">
-                {cart.cartItems.reduce((acc, curr) => (acc += curr.price * curr.quantity),0)}, {}
+                {cart.cartItems.reduce((acc, curr) => (acc += curr.price * curr.quantity),0)}{' '}
 
                   RON
                 </span>

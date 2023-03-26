@@ -6,6 +6,8 @@ import Home from './components/Home';
 import Cart from './components/Cart';
 import NotFound from './components/NotFound';
 import { ToastContainer } from "react-toastify"
+import Register from './components/authentication/Register';
+import Login from './components/authentication/Login';
 
 function App() {
   return (
@@ -27,7 +29,9 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/cart" exact Component={Cart} />
-        <Route path="/shop" exact Component={Home} />
+        <Route path="/" exact Component={Home} />
+        <Route path="/register" Component={Register} />
+        <Route path="/login" Component={Login} />
         <Route path="/*" Component={NotFound} element={<Navigate />}/>
       </Routes>
     </Router>
